@@ -10,8 +10,17 @@ Base architecture already created in this repo. This repo contain following comp
 6) LiveData
 
 
-## Screenshot
+## Login Module
 
-<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/login.png" width="250" height="500"> 
+<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/login.jpg" height="500"> 
 
+
+## Home Module
+
+<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/home.jpg" height="500"> 
+
+
+## Post Module
+
+<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/post.jpg" height="500"> 
 
