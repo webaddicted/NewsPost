@@ -29,3 +29,19 @@ Base architecture already created in this repo. This repo contain following comp
 
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/post.jpg" height="500"> 
 
+
+
+
+## LICENSE
+```
+
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+             TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+```
+
+
