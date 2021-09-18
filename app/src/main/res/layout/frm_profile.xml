@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusableInTouchMode="true">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_marginBottom="@dimen/dp15"
+                        android:padding="@dimen/dp8"
+                        android:src="@drawable/ic_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/update_profile"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp20" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp32"
+                    android:paddingRight="@dimen/dp32">
+
+
+                    <FrameLayout
+                        android:id="@+id/frame_img"
+                        android:layout_width="@dimen/dp133"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp25">
+
+                        <com.example.myapplication.global.customview.CircleImageView
+                            android:id="@+id/img_user"
+                            android:layout_width="@dimen/dp120"
+                            android:layout_height="@dimen/dp120"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_user"
+                            app:civ_border_color="@color/app_color"
+                            app:civ_border_width="@dimen/dp1" />
+
+
+                        <ImageView
+                            android:id="@+id/img_capture"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="bottom|right"
+                            android:background="@drawable/circle_view"
+                            android:padding="@dimen/dp8"
+                            android:src="@drawable/ic_camera" />
+                    </FrameLayout>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_full_name"
+                        style="@style/EdtText"
+                        android:layout_marginTop="@dimen/dp25"
+                        android:hint="@string/full_name"
+                        android:inputType="textPersonName" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_mobile_no"
+                        style="@style/EdtText"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:hint="@string/mobile_no"
+                        android:inputType="number"
+                        android:maxLength="10" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_email"
+                        style="@style/EdtText"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress" />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_pwd"
+                        style="@style/EdtText"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:hint="@string/password"
+                        android:inputType="textPassword" />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_confirm_pwd"
+                        style="@style/EdtText"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:hint="@string/confirm_password"
+                        android:inputType="textPassword" />
+
+                    <Button
+                        android:id="@+id/btn_submit"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp25"
+                        android:text="@string/submit" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

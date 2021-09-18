@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:focusableInTouchMode="true">
+
+        <!--        <androidx.core.widget.NestedScrollView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:fillViewport="true">-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.48"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp40"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/building" />
+
+                <ImageView
+                    android:id="@+id/img_car"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp180"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:src="@drawable/car" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.52"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp32"
+                android:paddingRight="@dimen/dp32">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:text="@string/verify_otp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp19" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:gravity="center"
+                    android:text="@string/enter_otp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp16" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_moile_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9024061407"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp17" />
+
+                    <TextView
+                        android:id="@+id/txt_change_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:gravity="center"
+                        android:text="@string/change_number"
+                        android:textColor="@color/yellow_color"
+                        android:textSize="@dimen/sp17" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp20"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.myapplication.global.customview.Pinview
+                        android:id="@+id/pinview"
+                        style="@style/PinWidget.PinView"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Hint."
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15"
+                        app:cursorVisible="true"
+                        app:forceKeyboard="false"
+                        app:hint="0"
+                        app:inputType="number"
+                        app:password="false"
+                        app:pinHeight="50dp"
+                        app:pinLength="5"
+                        app:pinWidth="50dp" />
+
+                    <TextView
+                        android:id="@+id/txt_resend_otp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp8"
+                        android:paddingLeft="@dimen/dp10"
+                        android:paddingRight="@dimen/dp10"
+                        android:text="@string/resend_otp"
+                        android:textColor="@color/yellow_color"
+                        android:textSize="@dimen/sp19" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/dp10">
+
+                    <Button
+                        android:id="@+id/btn_cancel"
+                        style="@style/Button"
+                        android:text="@string/cancel" />
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        style="@style/Button"
+                        android:layout_margin="@dimen/dp5"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:text="@string/login" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp20" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--        </androidx.core.widget.NestedScrollView>-->
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--            android:id="@+id/img_back"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="@dimen/dp20"-->
+        <!--            android:layout_marginTop="@dimen/dp40"-->
+        <!--            android:backgroundTint="@color/white"-->
+        <!--            android:src="@drawable/ic_back" />-->
+
+    </RelativeLayout>
+</layout>

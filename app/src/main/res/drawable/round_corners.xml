@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="20dp" />
+    <stroke
+        android:width="1dp"
+        android:color="#41616669" />
+    <solid android:color="@color/transprant" />
+    <!--    <solid android:color="#43dbdcdd"/>-->
+
+
+    <!-- you can use any color you want I used here gray color -->
+    <!--    <solid android:color="@color/app_color" />-->
+
+    <!--    <corners-->
+    <!--        android:radius="@dimen/dp35"/>-->
+
+    <!--    &lt;!&ndash;//gradient is used to hide inner color&ndash;&gt;-->
+    <!--    &lt;!&ndash;<gradient&ndash;&gt;-->
+    <!--    &lt;!&ndash;android:angle="270"&ndash;&gt;-->
+    <!--    &lt;!&ndash;android:type="linear" />&ndash;&gt;-->
+    <!--    &lt;!&ndash;//outer boundery&ndash;&gt;-->
+    <!--    <stroke-->
+    <!--        android:width="1dp"-->
+    <!--        android:color="@color/app_color" />-->
+</shape>

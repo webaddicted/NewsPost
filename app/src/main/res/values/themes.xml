@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/sec_color</item>
+        <item name="colorSecondaryVariant">@color/sec_color</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="colorOnSecondary">@color/black</item>-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="Theme.Airtel" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/sec_color</item>
+        <item name="colorSecondaryVariant">@color/sec_color</item>
+        <!--        <item name="colorOnSecondary">@color/black</item>-->
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="TextView_Regular">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <!--        <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>-->
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dp45</item>
+        <item name="android:background">@drawable/round_btn_corner</item>
+        <item name="android:minHeight">@dimen/dp40</item>
+        <item name="android:minWidth">@dimen/dp150</item>
+        <item name="android:paddingLeft">@dimen/dp10</item>
+        <item name="android:paddingRight">@dimen/dp10</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="txt_black_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:textStyle">normal</item>
+        <!--        <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>-->
+    </style>
+
+    <style name="EdtText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp45</item>
+        <item name="android:paddingLeft">@dimen/dp20</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/rectangle_unfill</item>
+        <item name="android:backgroundTint">@color/grey</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:maxLength">35</item>
+    </style>
+    <style name="PinWidget.PinView" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+</resources>

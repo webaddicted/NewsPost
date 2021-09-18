@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:padding="@dimen/dp5"
+        android:layout_margin="@dimen/dp8"
+        android:background="@drawable/rectangle_unfill"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/car2" />
+</layout>
