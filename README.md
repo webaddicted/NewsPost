@@ -1,5 +1,10 @@
 # NewsPost
 
+***You can Install and test latest Kotlin Demo app from below 👇***
+
+[![News Post](https://img.shields.io/badge/News%20Post-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/NewsPost/tree/master/apk/newspost.apk)
+
+
 Base architecture already created in this repo. This repo contain following component :
 
 1) Retrofit 
