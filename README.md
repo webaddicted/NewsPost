@@ -1,4 +1,4 @@
-# NewProject
+# NewsPost
 
 Base architecture already created in this repo. This repo contain following component :
 
@@ -12,6 +12,6 @@ Base architecture already created in this repo. This repo contain following comp
 
 ## Screenshot
 
-<img src="https://github.com/techtamper/NewProject/raw/main/screenshot/video.gif" width="250" height="500"> 
+<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/login.png" width="250" height="500"> 
 
 
