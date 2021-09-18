@@ -1,8 +1,8 @@
 # NewsPost
 
-***You can Install and test latest Kotlin Demo app from below 👇***
+***You can Install and test latest News Post app from below 👇***
 
-[![News Post](https://img.shields.io/badge/News%20Post-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/NewsPost/tree/master/apk/newspost.apk)
+[![News Post](https://img.shields.io/badge/News%20Post-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/NewsPost/blob/main/apk/newspost.apk)
 
 
 Base architecture already created in this repo. This repo contain following component :
@@ -28,4 +28,20 @@ Base architecture already created in this repo. This repo contain following comp
 ## Post Module
 
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/post.jpg" height="500"> 
+
+
+
+
+## LICENSE
+```
+
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+             TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+```
+
 
