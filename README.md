@@ -13,6 +13,9 @@ Base architecture already created in this repo. This repo contain following comp
 4) Material Design
 5) MVVM
 6) LiveData
+7) Kotin
+8) Coroutines
+9) Video Capture
 
 
 ## Login Module
