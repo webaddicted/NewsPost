@@ -4,23 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.databinding.FrmBrandBinding
 import com.example.myapplication.databinding.FrmYearBinding
-import com.example.myapplication.view.adapter.BrandAdapter
-import com.example.myapplication.view.adapter.BrandAllAdapter
 import com.example.myapplication.view.adapter.ModelAdapter
 import com.example.myapplication.view.base.BaseFragment
 
-class CarVariantFrm : BaseFragment() {
+class CarVariantFrm : BaseFragment(R.layout.frm_year) {
     private lateinit var mAllBrandAdapter: ModelAdapter
     private lateinit var mBrandAdapter: ModelAdapter
     private lateinit var mBinding: FrmYearBinding
 
     companion object {
-        val TAG = CarVariantFrm::class.java.simpleName
+        val TAG = CarVariantFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CarVariantFrm {
             val fragment = CarVariantFrm()
             fragment.arguments = bundle
@@ -28,11 +24,7 @@ class CarVariantFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_year
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmYearBinding
         init()
         clickListener()

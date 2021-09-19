@@ -5,6 +5,8 @@ import android.content.Context
 import android.graphics.Rect
 import android.util.TypedValue
 import android.view.View
+import kotlin.math.roundToInt
+
 /**
  * Author : Deepak Sharma(Webaddicted)
  * Email : techtamper@gmail.com
@@ -24,7 +26,7 @@ fun Activity.isKeyboardOpen(): Boolean {
     val visibleBounds = Rect()
     this.getRootView().getWindowVisibleDisplayFrame(visibleBounds)
     val heightDiff = getRootView().height - visibleBounds.height()
-    val marginOfError = Math.round(this.convertDpToPx(50F))
+    val marginOfError = this.convertDpToPx(50F).roundToInt()
     return heightDiff > marginOfError
 }
 fun Activity.softkeybordHeight(): Int{

@@ -129,5 +129,37 @@
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginRight="@dimen/dp10"
             android:background="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/txt_open_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp10">
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:scaleType="fitXY"
+                android:src="@drawable/car" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:text="@string/pics"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp17" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:background="@color/grey" />
     </LinearLayout>
 </layout>

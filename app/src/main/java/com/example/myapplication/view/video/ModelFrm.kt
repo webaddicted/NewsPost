@@ -8,18 +8,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FrmBrandBinding
-import com.example.myapplication.view.adapter.BrandAdapter
 import com.example.myapplication.view.adapter.BrandAllAdapter
 import com.example.myapplication.view.adapter.ModelAdapter
 import com.example.myapplication.view.base.BaseFragment
 
-class ModelFrm : BaseFragment() {
+class ModelFrm : BaseFragment(R.layout.frm_brand) {
     private lateinit var mAllBrandAdapter: BrandAllAdapter
     private lateinit var mBrandAdapter: ModelAdapter
     private lateinit var mBinding: FrmBrandBinding
 
     companion object {
-        val TAG = ModelFrm::class.java.simpleName
+        val TAG = ModelFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ModelFrm {
             val fragment = ModelFrm()
             fragment.arguments = bundle
@@ -27,11 +26,7 @@ class ModelFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_brand
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmBrandBinding
         init()
         clickListener()

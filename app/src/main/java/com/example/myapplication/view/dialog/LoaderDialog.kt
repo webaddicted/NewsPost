@@ -6,11 +6,11 @@ import com.example.myapplication.databinding.DialogLoaderBinding
 import com.example.myapplication.global.common.DialogUtil
 import com.example.myapplication.view.base.BaseDialog
 
-class LoaderDialog : BaseDialog() {
+class LoaderDialog : BaseDialog(R.layout.dialog_loader) {
     private lateinit var mBinding: DialogLoaderBinding
 
     companion object {
-        val TAG = LoaderDialog::class.java.simpleName
+        val TAG = LoaderDialog::class.qualifiedName
         fun dialog(isCancelable: Boolean = true): LoaderDialog {
             val dialog= LoaderDialog()
             dialog.isCancelable =  isCancelable
@@ -18,17 +18,13 @@ class LoaderDialog : BaseDialog() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.dialog_loader
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as DialogLoaderBinding
     }
 
     override fun onResume() {
         super.onResume()
-        dialog?.let { DialogUtil.modifyDialogBounds(activity, it) }
+        dialog?.let { DialogUtil.modifyDialogBounds(mActivity, it) }
     }
 
 }

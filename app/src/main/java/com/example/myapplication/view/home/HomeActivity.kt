@@ -13,10 +13,9 @@ import com.example.myapplication.databinding.ActivityHomeBinding
 import com.example.myapplication.view.base.BaseActivity
 import com.example.myapplication.view.login.LoginActivity
 import com.example.myapplication.view.video.AddFilterActivity
-import com.example.myapplication.view.video.AddFilterFrm
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(R.layout.activity_home) {
     private lateinit var mBinding: ActivityHomeBinding
 //    lateinit var newsFrm: NewsFrm
 //    lateinit var searchFrm: SearchFrm
@@ -24,7 +23,7 @@ class HomeActivity : BaseActivity() {
 //    lateinit var editProfile: EditProfileFrm
 
     companion object {
-        val TAG: String = LoginActivity::class.java.simpleName
+        val TAG = LoginActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, HomeActivity::class.java))
         }
@@ -37,17 +36,12 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_home
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityHomeBinding
         init()
         clickListener()
         bottomNaviSetup()
     }
-
 
     private fun init() {
     }
@@ -96,7 +90,7 @@ class HomeActivity : BaseActivity() {
 
     }
 
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             NewsFrm.TAG -> frm = NewsFrm.getInstance(Bundle())
@@ -112,10 +106,9 @@ class HomeActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             FileUtils.REQUEST_CAMERA_VIDEO -> {
-                if (FileUtils.captureVideoFile?.exists())
+                if (FileUtils.captureVideoFile.exists())
                     AddFilterActivity.newIntent(this, FileUtils.captureVideoFile.absolutePath)
             }
         }
-
     }
 }

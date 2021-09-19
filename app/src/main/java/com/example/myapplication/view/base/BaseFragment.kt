@@ -23,26 +23,26 @@ import org.koin.android.ext.android.inject
  * Email : techtamper@gmail.com
  * Profile : https://github.com/webaddicted
  */
-abstract class BaseFragment : Fragment(), View.OnClickListener,
+abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClickListener,
         PermissionHelper.Companion.PermissionListener {
     private lateinit var mBinding: ViewDataBinding
     private var loaderDialog: LoaderDialog? = null
+    protected val mActivity by lazy { requireActivity() }
     protected val preferenceMgr: PreferenceMgr by inject()
-    abstract fun getLayout(): Int
-    protected abstract fun initUI(binding: ViewDataBinding)
+    protected abstract fun onBindTo(binding: ViewDataBinding)
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        mBinding = DataBindingUtil.inflate(inflater, getLayout(), container, false)
+        mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return mBinding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initUI(mBinding)
+        onBindTo(mBinding)
         super.onViewCreated(view, savedInstanceState)
         if (loaderDialog == null) {
             loaderDialog = LoaderDialog.dialog(false)
@@ -51,12 +51,11 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
 
     protected fun showApiLoader() {
         if (loaderDialog != null) {
-            val fragment = fragmentManager?.findFragmentByTag(LoaderDialog.TAG)
-            if (fragment != null) fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            loaderDialog?.show(requireFragmentManager(), LoaderDialog.TAG)
+            val fragment = parentFragmentManager.findFragmentByTag(LoaderDialog.TAG)
+            if (fragment != null) parentFragmentManager.beginTransaction().remove(fragment).commit()
+            loaderDialog?.show(parentFragmentManager, LoaderDialog.TAG)
         }
     }
-
 
     protected fun hideApiLoader() {
         if (loaderDialog != null && loaderDialog?.isVisible!!) loaderDialog?.dismiss()
@@ -81,7 +80,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
 
     override fun onResume() {
         super.onResume()
-        activity?.let { GlobalUtility.hideKeyboard(it) }
+        GlobalUtility.hideKeyboard(mActivity)
     }
 
     protected fun navigateFragment(
@@ -89,13 +88,11 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
             fragment: Fragment,
             isEnableBackStack: Boolean
     ) {
-        if (activity != null) {
-            (activity as BaseActivity).navigateFragment(
+            (mActivity as BaseActivity).navigateFragment(
                     layoutContainer,
                     fragment,
                     isEnableBackStack
             )
-        }
     }
 
     protected fun navigateAddFragment(
@@ -103,13 +100,11 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
             fragment: Fragment,
             isEnableBackStack: Boolean
     ) {
-        if (activity != null) {
-            (activity as BaseActivity).navigateAddFragment(
+            (mActivity as BaseActivity).navigateAddFragment(
                     layoutContainer,
                     fragment,
                     isEnableBackStack
             )
-        }
     }
 
     protected fun navigateChildFragment(
@@ -126,7 +121,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     }
 
     override fun onClick(v: View) {
-        activity?.let { GlobalUtility.hideKeyboard(it) }
+        GlobalUtility.hideKeyboard(mActivity)
         GlobalUtility.avoidDoubleClicks(v)
         GlobalUtility.btnClickAnimation(v)
     }
@@ -136,15 +131,15 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.CAMERA)
-        if (PermissionHelper.checkMultiplePermission(requireActivity(), multiplePermission)) {
-            FileUtils.createApplicationFolder(requireActivity())
+        if (PermissionHelper.checkMultiplePermission(mActivity, multiplePermission)) {
+            FileUtils.createApplicationFolder(mActivity)
             onPermissionGranted(multiplePermission)
         } else
-            PermissionHelper.requestMultiplePermission(requireActivity(), multiplePermission, this)
+            PermissionHelper.requestMultiplePermission(mActivity, multiplePermission, this)
     }
 
     override fun onPermissionGranted(mCustomPermission: List<String>) {
-        FileUtils.createApplicationFolder(requireActivity())
+        FileUtils.createApplicationFolder(mActivity)
     }
 
 
@@ -158,7 +153,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     }
 
     protected fun addBlankSpace(bottomSpace: LinearLayout) {
-        KeyboardEventListener(activity as AppCompatActivity) { isKeyboardOpen: Boolean, softkeybordHeight: Int ->
+        KeyboardEventListener(mActivity as AppCompatActivity) { isKeyboardOpen: Boolean, softkeybordHeight: Int ->
             if (isKeyboardOpen)
                 bottomSpace.layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,

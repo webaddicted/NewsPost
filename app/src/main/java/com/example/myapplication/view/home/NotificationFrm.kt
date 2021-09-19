@@ -7,14 +7,15 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FrmNotiBinding
 import com.example.myapplication.view.activity.AirtelActivity
+import com.example.myapplication.view.activity.MainActivity
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.login.ProfileFrm
 
-class NotificationFrm : BaseFragment() {
+class NotificationFrm : BaseFragment(R.layout.frm_noti) {
     private lateinit var mBinding: FrmNotiBinding
 
     companion object {
-        val TAG = NotificationFrm::class.java.simpleName
+        val TAG = NotificationFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): NotificationFrm {
             val fragment = NotificationFrm()
             fragment.arguments = bundle
@@ -22,11 +23,7 @@ class NotificationFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_noti
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmNotiBinding
         init()
         clickListener()
@@ -37,15 +34,19 @@ class NotificationFrm : BaseFragment() {
 
     private fun clickListener() {
         mBinding.txtOpenAirtel.setOnClickListener(this)
+        mBinding.txtOpenPic.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
             R.id.txt_open_airtel -> {
-                AirtelActivity.newIntent(requireActivity())
+                AirtelActivity.newIntent(mActivity)
             }
-            R.id.txt_change_no, R.id.btn_cancel -> activity?.onBackPressed()
+            R.id.txt_open_pic -> {
+                MainActivity.newIntent(mActivity)
+            }
+            R.id.txt_change_no, R.id.btn_cancel -> mActivity.onBackPressed()
         }
     }
 

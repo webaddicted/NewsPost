@@ -9,11 +9,11 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityCommonBinding
 import com.example.myapplication.view.base.BaseActivity
 
-class LoginActivity : BaseActivity() {
+class LoginActivity : BaseActivity(R.layout.activity_common) {
     private lateinit var mBinding: ActivityCommonBinding
 
     companion object {
-        val TAG: String = LoginActivity::class.java.simpleName
+        val TAG = LoginActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, LoginActivity::class.java))
         }
@@ -26,11 +26,7 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
         init()
         clickListener()
@@ -44,7 +40,7 @@ class LoginActivity : BaseActivity() {
     private fun clickListener() {
     }
 
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             LoginFrm.TAG -> frm = LoginFrm.getInstance(Bundle())

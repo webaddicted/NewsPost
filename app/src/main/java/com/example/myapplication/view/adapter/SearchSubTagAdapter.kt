@@ -6,7 +6,7 @@ import com.example.myapplication.model.bean.SearchRespo
 import com.example.myapplication.view.base.BaseAdapter
 
 class SearchSubTagAdapter(private var dataList: ArrayList<SearchRespo.Photos.Photo>?) : BaseAdapter() {
-    override fun getListSize(): Int? {
+    override fun getListSize(): Int {
 //        if (dataList == null) return 0
 //        return dataList?.size
         return 5

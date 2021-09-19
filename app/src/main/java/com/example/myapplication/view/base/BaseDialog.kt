@@ -7,25 +7,26 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
+
 /**
  * this class help in show working process of create game &
  * select player/fielder rule
  */
-abstract class BaseDialog : DialogFragment(), View.OnClickListener {
+abstract class BaseDialog(private val layoutId: Int) : DialogFragment(), View.OnClickListener {
     private lateinit var mBinding: ViewDataBinding
-    abstract fun getLayout(): Int
-    protected abstract fun initUI(binding: ViewDataBinding)
+    protected val mActivity by lazy { requireActivity() }
+    protected abstract fun onBindTo(binding: ViewDataBinding)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = DataBindingUtil.inflate(inflater, getLayout(), container, false)
+        mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return mBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initUI(mBinding)
+        onBindTo(mBinding)
         super.onViewCreated(view, savedInstanceState)
     }
 

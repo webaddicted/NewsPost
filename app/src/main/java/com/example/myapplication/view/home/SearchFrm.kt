@@ -6,19 +6,17 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.databinding.FrmNewsBinding
 import com.example.myapplication.databinding.FrmSearchBinding
-import com.example.myapplication.view.adapter.NewsOfferAdapter
 import com.example.myapplication.view.adapter.SearchAdapter
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.login.ProfileFrm
 
-class SearchFrm : BaseFragment() {
+class SearchFrm : BaseFragment(R.layout.frm_search) {
     private lateinit var adapter: SearchAdapter
     private lateinit var mBinding: FrmSearchBinding
 
     companion object {
-        val TAG = SearchFrm::class.java.simpleName
+        val TAG = SearchFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): SearchFrm {
             val fragment = SearchFrm()
             fragment.arguments = bundle
@@ -26,11 +24,7 @@ class SearchFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_search
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmSearchBinding
         init()
         clickListener()

@@ -12,12 +12,12 @@ import com.example.myapplication.view.adapter.NewsOfferAdapter
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.login.ProfileFrm
 
-class NewsFrm : BaseFragment() {
+class NewsFrm : BaseFragment(R.layout.frm_news) {
     private lateinit var adapter: NewsOfferAdapter
     private lateinit var mBinding: FrmNewsBinding
 
     companion object {
-        val TAG = NewsFrm::class.java.simpleName
+        val TAG = NewsFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): NewsFrm {
             val fragment = NewsFrm()
             fragment.arguments = bundle
@@ -25,11 +25,7 @@ class NewsFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_news
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmNewsBinding
         init()
         clickListener()

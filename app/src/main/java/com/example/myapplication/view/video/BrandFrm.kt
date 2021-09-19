@@ -12,13 +12,13 @@ import com.example.myapplication.view.adapter.BrandAdapter
 import com.example.myapplication.view.adapter.BrandAllAdapter
 import com.example.myapplication.view.base.BaseFragment
 
-class BrandFrm : BaseFragment() {
+class BrandFrm : BaseFragment(R.layout.frm_brand) {
     private lateinit var mAllBrandAdapter: BrandAllAdapter
     private lateinit var mBrandAdapter: BrandAdapter
     private lateinit var mBinding: FrmBrandBinding
 
     companion object {
-        val TAG = BrandFrm::class.java.simpleName
+        val TAG = BrandFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BrandFrm {
             val fragment = BrandFrm()
             fragment.arguments = bundle
@@ -26,11 +26,7 @@ class BrandFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_brand
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmBrandBinding
         init()
         clickListener()

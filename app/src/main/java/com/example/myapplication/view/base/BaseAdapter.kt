@@ -15,7 +15,7 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected abstract fun onBindTo(rowBinding: ViewDataBinding, position: Int)
 
     companion object {
-        private val TAG = BaseAdapter::class.java.simpleName
+        private val TAG = BaseAdapter::class.qualifiedName
     }
 
     override fun getItemCount(): Int {

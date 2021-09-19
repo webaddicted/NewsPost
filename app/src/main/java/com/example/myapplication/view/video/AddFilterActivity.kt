@@ -8,14 +8,13 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityCommonBinding
 import com.example.myapplication.view.base.BaseActivity
-import java.io.File
 
-class AddFilterActivity : BaseActivity() {
+class AddFilterActivity : BaseActivity(R.layout.activity_common) {
     private lateinit var mBinding: ActivityCommonBinding
 
     companion object {
-        val TAG: String = AddFilterActivity::class.java.simpleName
-        val VIDEO_PATH = "VideoPath"
+        val TAG = AddFilterActivity::class.qualifiedName
+        const val VIDEO_PATH = "VideoPath"
         fun newIntent(activity: Activity, videoPath: String) {
             val intent = Intent(activity, AddFilterActivity::class.java)
             intent.putExtra(VIDEO_PATH, videoPath)
@@ -30,11 +29,7 @@ class AddFilterActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
         init()
         clickListener()
@@ -48,7 +43,7 @@ class AddFilterActivity : BaseActivity() {
     private fun clickListener() {
     }
 
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             AddFilterFrm.TAG -> frm = AddFilterFrm.getInstance(Bundle())

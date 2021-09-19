@@ -9,11 +9,11 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.FrmOtpBinding
 import com.example.myapplication.view.base.BaseFragment
 
-class OtpFrm : BaseFragment() {
+class OtpFrm : BaseFragment(R.layout.frm_otp) {
     private lateinit var mBinding: FrmOtpBinding
 
     companion object {
-        val TAG = OtpFrm::class.java.simpleName
+        val TAG = OtpFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): OtpFrm {
             val fragment = OtpFrm()
             fragment.arguments = bundle
@@ -21,11 +21,7 @@ class OtpFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_otp
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmOtpBinding
         init()
         clickListener()
@@ -59,7 +55,7 @@ class OtpFrm : BaseFragment() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             ProfileFrm.TAG -> frm = ProfileFrm.getInstance(Bundle())

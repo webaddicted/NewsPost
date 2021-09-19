@@ -9,23 +9,18 @@ import com.example.myapplication.databinding.FrmPostBinding
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.home.HomeActivity
 
-class PostFrm : BaseFragment() {
+class PostFrm : BaseFragment(R.layout.frm_post) {
     private lateinit var mBinding: FrmPostBinding
 
     companion object {
-        val TAG = PostFrm::class.java.simpleName
+        val TAG = PostFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): PostFrm {
             val fragment = PostFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_post
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmPostBinding
         init()
         clickListener()

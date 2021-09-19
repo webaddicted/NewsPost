@@ -10,12 +10,12 @@ import com.example.myapplication.databinding.FrmYearBinding
 import com.example.myapplication.view.adapter.BrandAllAdapter
 import com.example.myapplication.view.base.BaseFragment
 
-class YearsFrm : BaseFragment() {
+class YearsFrm : BaseFragment(R.layout.frm_year) {
     private lateinit var mAllBrandAdapter: BrandAllAdapter
     private lateinit var mBinding: FrmYearBinding
 
     companion object {
-        val TAG = YearsFrm::class.java.simpleName
+        val TAG = YearsFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): YearsFrm {
             val fragment = YearsFrm()
             fragment.arguments = bundle
@@ -23,11 +23,7 @@ class YearsFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_year
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmYearBinding
         init()
         clickListener()

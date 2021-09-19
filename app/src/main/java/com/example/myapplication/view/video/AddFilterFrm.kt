@@ -16,12 +16,12 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class AddFilterFrm : BaseFragment() {
+class AddFilterFrm : BaseFragment(R.layout.frm_add_filter) {
     private lateinit var mBinding: FrmAddFilterBinding
     private val tabTitle = arrayOf("Brand", "Model", "Year", "Variant", "State")
 
     companion object {
-        val TAG = AddFilterFrm::class.java.simpleName
+        val TAG = AddFilterFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): AddFilterFrm {
             val fragment = AddFilterFrm()
             fragment.arguments = bundle
@@ -29,11 +29,7 @@ class AddFilterFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_add_filter
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmAddFilterBinding
         init()
         clickListener()
@@ -76,7 +72,7 @@ class AddFilterFrm : BaseFragment() {
         if (pos == 0) {
             customBinding.imgMsg.setColorFilter(
                 ContextCompat.getColor(
-                    activity!!,
+                    mActivity,
                     R.color.yellow_color
                 ), android.graphics.PorterDuff.Mode.SRC_IN
             );
@@ -85,7 +81,7 @@ class AddFilterFrm : BaseFragment() {
     }
 
     private fun setupViewPager(viewPager: ViewPager2) {
-        val adapter = ViewPagerAdapter(activity!!)
+        val adapter = ViewPagerAdapter(mActivity)
         val frmBrand = BrandFrm()
         val frmModel = ModelFrm()
         val frmYear = YearsFrm()
@@ -104,7 +100,7 @@ class AddFilterFrm : BaseFragment() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             PostFrm.TAG -> frm = PostFrm.getInstance(Bundle())

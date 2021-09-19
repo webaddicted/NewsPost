@@ -4,25 +4,24 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.global.apiutils.ApiResponse
-import com.example.myapplication.model.bean.SearchRespo
-import com.example.myapplication.viewmodel.SearchViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.global.apiutils.ApiResponse
 import com.example.myapplication.model.bean.SearchReq
+import com.example.myapplication.model.bean.SearchRespo
 import com.example.myapplication.view.adapter.SearchAdapter
 import com.example.myapplication.view.base.BaseActivity
 import com.example.myapplication.view.base.ScrollListener
 import com.example.myapplication.view.login.LoginActivity
+import com.example.myapplication.viewmodel.SearchViewModel
 import com.google.android.material.snackbar.Snackbar
-import kotlin.collections.ArrayList
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(R.layout.activity_main) {
     private lateinit var adapter: SearchAdapter
     private var mPageCount: Int = 1
     private lateinit var mBinding: ActivityMainBinding
@@ -30,7 +29,7 @@ class MainActivity : BaseActivity() {
     private var dataList: ArrayList<SearchRespo.Photos.Photo>? = ArrayList()
 
     companion object {
-        val TAG: String = LoginActivity::class.java.simpleName
+        val TAG = LoginActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, MainActivity::class.java))
         }
@@ -43,12 +42,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-
-    override fun getLayout(): Int {
-        return R.layout.activity_main
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityMainBinding
         mBinding.linearNoDataFound.visibility = View.VISIBLE
         init()

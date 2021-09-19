@@ -14,26 +14,24 @@ import com.example.myapplication.R
 import com.example.myapplication.global.common.GlobalUtility
 import com.example.myapplication.global.common.PermissionHelper
 
-abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
+abstract class BaseActivity(private val layoutId: Int) : AppCompatActivity(), View.OnClickListener,
     PermissionHelper.Companion.PermissionListener {
 
     companion object {
-        val TAG = BaseActivity::class.java.simpleName
+        val TAG = BaseActivity::class.qualifiedName
     }
 
-    abstract fun getLayout(): Int
 
-    abstract fun initUI(binding: ViewDataBinding)
+    abstract fun onBindTo(binding: ViewDataBinding)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        val layoutResId = getLayout()
         val binding: ViewDataBinding?
-        if (layoutResId != 0) {
+        if (layoutId != 0) {
             try {
-                binding = DataBindingUtil.setContentView(this, layoutResId)
-                initUI(binding)
+                binding = DataBindingUtil.setContentView(this, layoutId)
+                onBindTo(binding)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -7,14 +7,13 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FrmLoginBinding
-import com.example.myapplication.view.activity.MainActivity
 import com.example.myapplication.view.base.BaseFragment
 
-class LoginFrm : BaseFragment() {
+class LoginFrm : BaseFragment(R.layout.frm_login) {
     private lateinit var mBinding: FrmLoginBinding
 
     companion object {
-        val TAG = LoginFrm::class.java.simpleName
+        val TAG = LoginFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): LoginFrm {
             val fragment = LoginFrm()
             fragment.arguments = bundle
@@ -22,11 +21,7 @@ class LoginFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_login
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmLoginBinding
         init()
         clickListener()
@@ -59,7 +54,7 @@ class LoginFrm : BaseFragment() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             OtpFrm.TAG -> frm = OtpFrm.getInstance(Bundle())

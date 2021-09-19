@@ -13,12 +13,12 @@ import com.example.myapplication.databinding.ActivitySplashBinding
 import com.example.myapplication.view.base.BaseActivity
 import com.example.myapplication.view.login.LoginActivity
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : BaseActivity(R.layout.activity_splash) {
     private lateinit var animZoom: Animation
     private lateinit var mBinding: ActivitySplashBinding
 
     companion object {
-        val TAG: String = SplashActivity::class.java.simpleName
+        val TAG = SplashActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, SplashActivity::class.java))
         }
@@ -31,11 +31,7 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_splash
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivitySplashBinding
         init()
         clickListener()

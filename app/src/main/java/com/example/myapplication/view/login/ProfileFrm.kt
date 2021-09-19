@@ -11,12 +11,12 @@ import com.example.myapplication.databinding.FrmProfileBinding
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.home.HomeActivity
 
-class ProfileFrm : BaseFragment() {
+class ProfileFrm : BaseFragment(R.layout.frm_profile) {
     private lateinit var animZoom: Animation
     private lateinit var mBinding: FrmProfileBinding
 
     companion object {
-        val TAG = ProfileFrm::class.java.simpleName
+        val TAG = ProfileFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ProfileFrm {
             val fragment = ProfileFrm()
             fragment.arguments = bundle
@@ -24,18 +24,14 @@ class ProfileFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_profile
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmProfileBinding
         init()
         clickListener()
     }
 
     private fun init() {
-        animZoom = AnimationUtils.loadAnimation(activity, R.anim.zoom_out)
+        animZoom = AnimationUtils.loadAnimation(mActivity, R.anim.zoom_out)
         mBinding.parent.startAnimation(animZoom)
     }
 
@@ -48,10 +44,10 @@ class ProfileFrm : BaseFragment() {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> mActivity.onBackPressed()
             R.id.img_capture -> {
             }
-            R.id.btn_submit -> HomeActivity.newClearLogin(activity)
+            R.id.btn_submit -> HomeActivity.newClearLogin(mActivity)
         }
     }
 

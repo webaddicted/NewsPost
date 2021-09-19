@@ -14,12 +14,12 @@ import com.example.myapplication.view.adapter.ProfileVideoAdapter
 import com.example.myapplication.view.base.BaseFragment
 import com.example.myapplication.view.login.ProfileFrm
 
-class EditProfileFrm : BaseFragment() {
+class EditProfileFrm : BaseFragment(R.layout.frm_edit_profile) {
     private lateinit var adapter: ProfileVideoAdapter
     private lateinit var mBinding: FrmEditProfileBinding
 
     companion object {
-        val TAG = EditProfileFrm::class.java.simpleName
+        val TAG = EditProfileFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EditProfileFrm {
             val fragment = EditProfileFrm()
             fragment.arguments = bundle
@@ -27,11 +27,7 @@ class EditProfileFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_edit_profile
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmEditProfileBinding
         init()
         clickListener()
