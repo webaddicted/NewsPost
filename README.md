@@ -1,12 +1,10 @@
 # NewsPost
 
 ***You can Install and test latest News Post app from below 👇***
-
 [![News Post](https://img.shields.io/badge/News%20Post-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/NewsPost/blob/main/apk/newspost.apk)
 
 ## GIF
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/fun.webp" width="505">
-
 
 Base architecture already created in this repo. This repo contain following component :
 
@@ -20,23 +18,27 @@ Base architecture already created in this repo. This repo contain following comp
 8) Coroutines
 9) Video Capture
 
+## Screens
 
-## Login Module
+- [Splash Page](#LoginModule)
+- [Login Module](#LoginModule)
+- [Signup Page](#LoginModule)
+- [OTP Page](#LoginModule)
+- [Home Page](#HomeModule)
+- [Setting Page](#HomePage)
+- [Create Post](#PostModule)
+- [Post Detail](#PostModule)
+- [Profile Page](#HomeModule)
 
+
+## LoginModule
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/login.jpg" height="500"> 
 
-
-## Home Module
-
+## HomeModule
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/home.jpg" height="500"> 
 
-
-## Post Module
-
+## PostModule
 <img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/post.jpg" height="500"> 
-
-
-
 
 ## LICENSE
 ```
