@@ -10,7 +10,7 @@
 
 Base architecture already created in this repo. This repo contain following component :
 
-- Retrofit(Retrofit) 
+- [Retrofit](Retrofit) 
 2) Kotlin Coroutines
 3) Koin
 4) Material Design
