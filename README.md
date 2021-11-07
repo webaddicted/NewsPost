@@ -10,7 +10,7 @@
 
 Base architecture already created in this repo. This repo contain following component :
 
-1) Retrofit 
+- Retrofit(Retrofit) 
 2) Kotlin Coroutines
 3) Koin
 4) Material Design
@@ -20,6 +20,10 @@ Base architecture already created in this repo. This repo contain following comp
 8) Coroutines
 9) Video Capture
 
+
+## Retrofit
+
+<img src="https://github.com/webaddicted/NewsPost/raw/main/screenshot/login.jpg" height="500"> 
 
 ## Login Module
 
