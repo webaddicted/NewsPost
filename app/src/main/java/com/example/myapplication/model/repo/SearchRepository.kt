@@ -8,7 +8,7 @@ import com.example.myapplication.global.apiutils.DataFetchCall
 import com.example.myapplication.model.bean.SearchReq
 import com.example.myapplication.model.bean.SearchRespo
 import kotlinx.coroutines.Deferred
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 import retrofit2.Response
 class SearchRepository constructor(private val apiServices: ApiServices) : KoinComponent {
     fun searchPicApi(strUrl: SearchReq, loginResponse: MutableLiveData<ApiResponse<SearchRespo>>) {

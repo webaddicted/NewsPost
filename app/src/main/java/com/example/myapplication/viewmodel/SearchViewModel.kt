@@ -6,7 +6,7 @@ import com.example.myapplication.global.apiutils.ApiResponse
 import com.example.myapplication.model.bean.SearchReq
 import com.example.myapplication.model.bean.SearchRespo
 import com.example.myapplication.model.repo.SearchRepository
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 
 class SearchViewModel(private val projectRepository: SearchRepository) : ViewModel(), KoinComponent{
     private var channelResponse = MutableLiveData<ApiResponse<SearchRespo>>()
